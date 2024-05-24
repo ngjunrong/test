@@ -1,5 +1,5 @@
 // models/User.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -36,10 +36,22 @@ const userSchema = new mongoose.Schema({
   },
   userType: {
     type: String,
-    enum: ['customer', 'manager'],
-    default: 'customer',
+    enum: ["customer", "manager"],
+    default: "customer",
     required: true,
   },
+  registeredEvent: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Event",
+    },
+  ],
+  participatedEvent: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Event",
+    },
+  ],
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
