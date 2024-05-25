@@ -30,7 +30,6 @@ exports.postEvents = asyncHandler(async (req, res) => {
     description: req.body.description,
     location: req.body.location,
     genre: req.body.genre,
-    feedback: req.body.feedback,
     date: req.body.date,
     time: req.body.time,
   });

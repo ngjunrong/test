@@ -13,13 +13,7 @@ const UserProfile = () => {
       <NavBar />
       <div className="profile-container">
         <h1>User Profile</h1>
-        {currentUser && currentUser.userType === "manager" && (
-          <OrganizerProfile />
-        )}
-        {currentUser && currentUser.userType === "customer" && (
-          <VolunteerProfile />
-        )}
-        {/* {currentUser ? (
+        {currentUser ? (
           <div className="user-info">
             <p>
               <strong>Name:</strong> {currentUser.name}
@@ -30,7 +24,14 @@ const UserProfile = () => {
           </div>
         ) : (
           <p>No user information available. Please log in.</p>
-        )} */}
+        )}
+
+        {currentUser && currentUser.userType === "manager" && (
+          <OrganizerProfile />
+        )}
+        {currentUser && currentUser.userType === "customer" && (
+          <VolunteerProfile />
+        )}
       </div>
     </div>
   );
