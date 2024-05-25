@@ -44,37 +44,36 @@ const Login = () => {
 
   return (
     <div className="container">
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-            <label>Email:</label>
-            <input
+          <label>Email:</label>
+          <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            />
+          />
         </div>
         <div className="form-group">
-            <label>Password:</label>
-            <input
+          <label>Password:</label>
+          <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            />
+          />
         </div>
         <button type="submit">Login</button>
-        </form>
-     
-  
-        {message && <div className="message">{message}</div>}
+      </form>
+
+      {message && <div className="message">{message}</div>}
 
       <div>
         Don't have an account? <Link to="/signup">Sign up now</Link>
       </div>
     </div>
-    );
+  );
 };
 
 export default Login;

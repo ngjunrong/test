@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import './signup.css';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -44,51 +45,51 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="container">
-      <div className="form-group">
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={formData.name}
-          onChange={handleChange}
-          className="input-field"
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="input-field"
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={formData.password}
-          onChange={handleChange}
-          className="input-field"
-          required
-        />
-      </div>
-      <button type="submit" className="submit-button">
-        Sign Up
-      </button>
+    <div className="container">
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" className="submit-button">
+          Sign Up
+        </button>
 
-      <div>
-        Already have an account? <Link to="/login">Login</Link>
-      </div>
-    </form>
+        <div>
+          Already have an account? <Link to="/login">Login</Link>
+        </div>
+      </form>
+    </div>
   );
 };
 
