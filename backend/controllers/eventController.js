@@ -15,24 +15,26 @@ exports.getEventId = asyncHandler(async (req, res) => {
 });
 
 exports.postEvents = asyncHandler(async (req, res) => {
-  const eventExist = await Event.findOne({ title: req.body.title });
+  try {
+    const eventExist = await Event.findOne({ title: req.body.title });
 
-  if (eventExist) {
-    res.status(400);
-    throw new Error("Event already exist");
+    if (eventExist) {
+      res.status(400);
+      throw new Error("Event already exists");
+    }
+
+    const event = await Event.create({
+      title: req.body.title,
+      image: req.body.image,
+      description: req.body.description,
+      location: req.body.location,
+      genre: req.body.genre,
+      date: req.body.date,
+      time: req.body.time,
+    });
+
+    res.status(200).json(event);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
-
-  console.log(req.body);
-
-  const event = await Event.create({
-    title: req.body.title,
-    image: req.body.image,
-    description: req.body.description,
-    location: req.body.location,
-    genre: req.body.genre,
-    date: req.body.date,
-    time: req.body.time,
-  });
-
-  res.status(200).json(event);
 });

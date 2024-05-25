@@ -4,7 +4,7 @@
 }
 
 .add-event-button {
-  background-color: #4caf50; /* Green */
+  background-color: #ff9900;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -19,5 +19,5 @@
 }
 
 .add-event-button:hover {
-  background-color: #45a049;
+  background-color: #cc7a00;
 }
