@@ -46,6 +46,11 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  submitted_by: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Event", eventSchema);

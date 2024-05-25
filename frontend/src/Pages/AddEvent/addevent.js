@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./addevent.css";
+import { Context } from "../store/context";
 
 const AddEvent = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,8 @@ const AddEvent = () => {
     time: "",
   });
   const [error, setError] = useState(null);
+
+  const [currentUser, setCurrentUser] = useContext(Context);
 
   const navigate = useNavigate();
 
@@ -34,7 +37,10 @@ const AddEvent = () => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        ...formData,
+        submitted_by: currentUser._id,
+      }),
     });
 
     const responseData = await response.json();

@@ -31,6 +31,7 @@ exports.postEvents = asyncHandler(async (req, res) => {
       genre: req.body.genre,
       date: req.body.date,
       time: req.body.time,
+      submitted_by: req.body.submitted_by,
     });
 
     res.status(200).json(event);
